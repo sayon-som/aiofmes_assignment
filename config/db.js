@@ -1,10 +1,10 @@
 //mongoose
 const mongoose = require("mongoose");
-
+require('dotenv').config();
 const connectedDB = async () => {
   try {
-  
-    await mongoose.connect("mongodb://localhost:27017/Blog_new_Db");
+  //used local db 
+    await mongoose.connect(process.env.MONGO_URI);
     console.log("your database is being connected");
   } catch (e) {
     console.log("error");
